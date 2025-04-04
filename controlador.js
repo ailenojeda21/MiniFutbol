@@ -27,4 +27,13 @@ function nuevoCliente(data) {
     }
 }
 
-module.exports = {nuevoTurno,nuevoCliente}
+function nuevoCliente(data) {
+    console.log("--Controlador--")
+
+    const unCliente = new Clases.Cliente(data.nombre,data.dni,data.telefono)
+    console.log(unCliente)
+    Modelo.nuevoCliente(unCliente)
+}
+
+module.exports = {nuevoTurno, nuevoCliente}
+

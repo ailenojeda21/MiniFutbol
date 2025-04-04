@@ -1,5 +1,6 @@
 const fs = require('fs')
 
+
 function nuevoTurno(data){
     console.log("--Modelo--")
     let str_turnos = fs.readFileSync('./db/turnos.txt','utf-8')
@@ -25,4 +26,17 @@ function nuevoCliente(data){
     fs.writeFileSync('./db/clientes.txt',JSON.stringify(clientes))
 }
 
-module.exports = {nuevoTurno}
+function nuevoCliente(data){
+    console.log("--Modelo--")
+    let str_cliente = fs.readFileSync('./db/clientes.txt','utf-8')
+    let clientes = []
+    if(str_cliente){
+        clientes = JSON.parse(str_cliente)
+    }
+
+    clientes.push(data)
+
+    fs.writeFileSync('./db/clientes.txt',JSON.stringify(clientes))
+}
+
+module.exports = {nuevoTurno, nuevoCliente}
