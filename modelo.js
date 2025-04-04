@@ -13,6 +13,18 @@ function nuevoTurno(data){
 
     fs.writeFileSync('./db/turnos.txt',JSON.stringify(turnos))
 }
+function nuevoCliente(data){
+    console.log("--Modelo--")
+    let str_clientes = fs.readFileSync('./db/clientes.txt','utf-8')
+    let clientes = []
+    if(str_clientes){
+        clientes = JSON.parse(str_clientes)
+    }
+
+    clientes.push(data)
+
+    fs.writeFileSync('./db/clientes.txt',JSON.stringify(clientes))
+}
 
 function nuevoCliente(data){
     console.log("--Modelo--")

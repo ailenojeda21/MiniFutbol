@@ -9,8 +9,12 @@ app.use(express.urlencoded({extended : false}))
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+
 app.get ('/',(req, res)=>{
     //res.send('<h1>Hola desde servidor Node</p>')
+    res.render('index.ejs',{cohorte : "2023"})
     res.render('index.ejs',{url : "http://localhost:3000"})
 })
 
