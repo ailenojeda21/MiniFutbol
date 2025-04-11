@@ -18,11 +18,15 @@ function nuevoTurno(data){
 
 function nuevoCliente(data){
     console.log("--seguridad--")
+    console.log("data")
     console.log(data)
-
-    if (data.token == "123asdasdasqqq") {
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
         Controlador.nuevoCliente(data)
+        return {success: true}
+    }else{
+        return {success: false}
     }
+    
 }
 
 module.exports = {nuevoTurno, nuevoCliente}
