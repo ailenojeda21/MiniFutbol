@@ -33,6 +33,7 @@ function nuevoCliente(data) {
     const unCliente = new Clases.Cliente(data.nombre,data.dni,data.telefono)
     console.log(unCliente)
     Modelo.nuevoCliente(unCliente)
+    return {success: true}
 }
 
 module.exports = {nuevoTurno, nuevoCliente}
