@@ -16,7 +16,7 @@ function nuevoTurno(data){
     }{
         return {success: false}
     }
-}
+} 
 
 function nuevoCliente(data){
     console.log("--seguridad--")

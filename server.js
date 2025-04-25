@@ -35,6 +35,11 @@ app.get('/usuarios', (req, res)=>{
 
 // --- Clientes ---------------------------------------
 
+app.get ('/cliente',(req, res)=>{
+    res.render('Cliente.ejs',{url : "http://localhost:3000"})
+})
+
+
 app.post('/clientes', (req,res)=>{
     console.log(req.body)
     res.render('clientes.ejs',{url: "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98" })
@@ -46,10 +51,6 @@ app.post('/api/clientes', (req, res)=>{
     if(respuesta.success){
         res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
     }
-})
-
-app.get ('/cliente',(req, res)=>{
-    res.render('Cliente.ejs',{url : "http://localhost:3000"})
 })
 
 /* 
