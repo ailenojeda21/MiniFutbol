@@ -1,1 +1,1 @@
-[{"nombre":"Juan Perez","dni":"75757575","telefono":"12345678"}]
+[{"nombre":"Juan Perez","dni":"75757575","telefono":"12345678"},{"nombre":"Ricardo Leiton","dni":"","telefono":""},{"nombre":"Coco Jurado","dni":"48985","telefono":"490543534"}]
