@@ -17,10 +17,12 @@ app.get ('/',(req, res)=>{
 
 app.post ('/menu',(req, res)=>{
     console.log(req.body)
-    if(true){  // Requerimiento 002 req.body.token == "..." validar que el token sea el correcto.
+    
+    if(req.body.token == "lkjrt4v3wmtiqoprmmor98"){  // Requerimiento 002 req.body.token == "..." validar que el token sea el correcto.
         res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
     }else{
-        res.render('menu.ejs',{url : "http://localhost:3000", token:""})
+        res.redirect('/');
+        //res.render('menu.ejs',{url : "http://localhost:3000", token:""})
     }
 })
 
@@ -67,7 +69,7 @@ app.post('/nuevocliente',(req, res)=>{
 app.get('/turnos', (req, res)=>{  // Requerimiento 001
     console.log(req.headers.token)
     console.log(req.body)
-    res.send('<p>Menú de Turnos</p>')
+    res.render('index.ejs', {url: "http://localhost:3000"})
 })
 
 app.post('/nuevoturno',(req, res)=>{

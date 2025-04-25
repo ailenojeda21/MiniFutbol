@@ -14,9 +14,14 @@
     </form>
 
 
-    <button>Turnos  </button>
+    <!--<button>Turnos  </button>-->
+    <form action="<%= url %>/turnos" method="GET">
+        <input type="hidden" name="token" value="<%= token %>">
+        <button type="submit">Turnos</button>
+    </form>
     <script>
         // Requerimiento 001  código para ir al menú de turnos.
+        
     </script>
 </body>
 </html>
