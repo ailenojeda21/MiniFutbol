@@ -53,6 +53,11 @@ app.post('/api/clientes', (req, res)=>{
     }
 })
 
+app.post('/dameClientes', (req, res)=>{
+    let clientes = Seguridad.dameClientes()
+    res.render('listadoclientes.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: clientes})
+})
+
 /* 
 app.post('/nuevocliente',(req, res)=>{
     console.log(req.body)
@@ -76,6 +81,7 @@ app.post('/nuevoturno',(req, res)=>{
 
     res.send(JSON.stringify(req.body))
 })
+
 
 const PORT = 3000
 app.listen(PORT, ()=>{console.log(`Escuchando en el puerto  ${PORT} `)})
