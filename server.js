@@ -88,7 +88,9 @@ app.post('/nuevocliente',(req, res)=>{
 
 
 // --- Turnos ------------------------------------------
-
+app.post('/turnos',(req, res)=>{
+    res.render('index.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+})
 
 app.post('/nuevoturno',(req, res)=>{
     console.log(req.body)
