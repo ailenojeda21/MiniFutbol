@@ -72,7 +72,7 @@ app.get ('/cliente',(req, res)=>{
     res.render('Cliente.ejs',{url : "http://localhost:3000"})
 })
 
-app.post('/dameClientes', (req, res)=>{
+app.get('/dameClientes', (req, res)=>{
     let clientes = Seguridad.dameClientes()
     res.render('listadoclientes.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: clientes})
 })

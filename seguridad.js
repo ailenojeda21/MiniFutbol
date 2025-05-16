@@ -32,7 +32,7 @@ function nuevoCliente(data){
 }
 
 function dameClientes(data){
-    Controlador.dameClientes()
+    return Controlador.dameClientes()
 }
 
 module.exports = {dameClientes,nuevoTurno, nuevoCliente}
