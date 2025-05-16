@@ -31,11 +31,16 @@ function nuevoCliente(data){
     }
 }
 
-function getClientes(){
-    const cliente1 = new Clases.Cliente("Enzo Adrián 1",12345671,87654321)
-    const cliente2 = new Clases.Cliente("Enzo Adrián 2",12345672,87654322)
-    const cliente3 = new Clases.Cliente("Enzo Adrián 3",12345673,87654323)
-    const arrayClientes = [cliente1, cliente2, cliente3]
-    return arrayClientes
+function getClientes(data){
+    let clientes = [];
+    const str_cliente = fs.readFileSync('./db/clientes.txt','utf-8')
+    if (str_cliente){
+        let arClientes = JSON.parse(str_cliente)
+            for (let i = 0; i < arClientes.length; i++){
+                let c = arClientes[i]
+                clientes.push(new Clases.Cliente(c.nombre, c.dni, c.telefono))
+            }         
+        }
+        return clientes;
 }
 module.exports = {getClientes, nuevoTurno, nuevoCliente}
