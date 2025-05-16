@@ -12,7 +12,14 @@ function testCliente() {
     console.log(miTurno.hora === 2);
     console.log(miTurno.libre === true);
 }
-
-testCliente();
-testTurno();
+function tesGetClientes() {
+    const modelo = require('./modelo.js')
+    
+    const clientes = modelo.getClientes()
+    console.log("Clientes:")
+    console.log(clientes)
+}
+//testCliente();
+//testTurno();
+tesGetClientes();
 
