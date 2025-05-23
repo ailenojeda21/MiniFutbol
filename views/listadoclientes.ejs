@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado Clientes</title>
+</head>
+<body>
+    <h1>Minifutbol IES-9024</h1>
+    <h2>Listado Clientes</h2>    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nro Cliente</th>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < clientes.length; i++) { %>
+                <tr>
+                    <td><%= i+1%></td>
+                    <td><%= clientes[i].nombre %></td>
+                    <td><%= clientes[i].dni %></td>
+                    <td><%= clientes[i].telefono %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

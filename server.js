@@ -44,6 +44,12 @@ app.post('/menu', (req, res) => {
     }
 });
 
+app.post('/dameClientes', (req, res)=>{
+    let resultado = Seguridad.dameClientes(req.body)
+   if(resultado.success){
+    res.render('listadoclientes.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: resultado.clientes})
+}})
+
 // --- Usuarios ---------------------------------------
 
 app.get('/usuarios', (req, res)=>{
@@ -70,11 +76,6 @@ app.post('/api/clientes', (req, res)=>{
 
 app.get ('/cliente',(req, res)=>{
     res.render('Cliente.ejs',{url : "http://localhost:3000"})
-})
-
-app.post('/dameClientes', (req, res)=>{
-    let clientes = Seguridad.dameClientes()
-    res.render('listadoclientes.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98",clientes: clientes})
 })
 
 /* 
