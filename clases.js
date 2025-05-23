@@ -4,48 +4,45 @@ class Turno {
         this.dia = dia;
         this.hora = hora;
         this.libre = libre;
-        this.Cliente = Cliente;
-    }
-    
-    set Dia(dia) {
-        this.dia = dia;
-    }
-    get Dia() {
-        return this.dia;
+        //this.cliente = Cliente;
     }
 
-    set Hora(hora) {
-        this.hora = hora;
+    get dia(){
+        return this.dia
     }
-    get Hora() {
-        return this.hora;
+    set dia(nuevoDia){
+        this.dia = nuevoDia
     }
-    
-    set Libre(libre) {
-        this.libre = libre;
+
+    get hora(){
+        return this.hora
     }
-    get Libre() {
-        return this.libre;
+    set hora(nuevaHora){
+        this.hora = nuevaHora
     }
-    
-    set Cliente(cliente) {
-        this.Cliente = cliente;
-    }   
-    get Cliente() {
-        return this.Cliente;
+
+    get libre(){
+        return this.libre
     }
-    
-    equals(Turno){
-        return this.dia == Turno.dia && this.hora == Turno.hora && this.libre == Turno.libre;
+    set libre(nuevoEstado){
+        this.libre = nuevoEstado
+    }              
+
+    get cliente(){
+        return this.cliente
     }
-    
-    FromJSON(json){
-        let obj = JSON.parse(json)
-        this.dia = obj.dia
-        this.hora = obj.hora
-        this.libre = obj.libre
-        this.Cliente = obj.Cliente
+    set cliente(nuevoCliente){
+        this.cliente = nuevoCliente
     }
+
+    fromJSON(json){
+        const {dia,hora,libre,cliente} = JSON.parse(json)
+        this.dia = dia
+        this.hora = hora
+        this.libre = libre
+        this.cliente = new Cliente(cliente.nombre, cliente.dni, cliente.telefono);
+    }
+
 }
 
 class Cliente{

@@ -36,7 +36,7 @@ function nuevoCliente(data) {
     return {success: true}
 }
 
-function dameClientes(){
+function dameClientes(data){
     return Modelo.getClientes()
 }
 
