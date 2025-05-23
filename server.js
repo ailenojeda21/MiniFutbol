@@ -101,5 +101,12 @@ app.post('/nuevoturno',(req, res)=>{
 })
 
 
+
+// --- Volver --------------------------------------------
+
+app.post('/volver', (req, res)=>{
+    res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+})
+
 const PORT = 3000
 app.listen(PORT, ()=>{console.log(`Escuchando en el puerto  ${PORT} `)})
