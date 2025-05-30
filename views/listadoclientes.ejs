@@ -28,11 +28,10 @@
             <% } %>
         </tbody>
     </table>
-
     <br>
-
-    <form action="<%=url%>/volver" method="post">
-        <input type="submit" value="volver">
+    <form action="<%=url%>/menuGeneral" method="POST">
+        <input type="hidden" name="token" value="<%=token%>">
+        <input type="submit" value="Volver">
     </form>
 </body>
 </html>
