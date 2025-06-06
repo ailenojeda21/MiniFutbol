@@ -38,4 +38,13 @@ Nuevo turno:
         -[Agregar Turno]<-botón
     Postcondiciones:
         -json con atributos del objeto turno
+
+Listar Clientes:
+    Precondiciones:
+        -Vista menú General
+    Acciones:
+        -Seleccionar [Listar Clientes]
+    Postcondiciones:
+        -Vista "Listado Clientes"
+        
         
