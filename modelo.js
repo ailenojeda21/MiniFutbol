@@ -32,16 +32,18 @@ function nuevoCliente(data){
         return {success: true}
     }
 }
+
 function getClientes(){
     let clientes = [];
     const str_cliente = fs.readFileSync('./db/clientes.txt','utf-8')
     if (str_cliente){
         let arClientes = JSON.parse(str_cliente)
-            for (let i = 0; i < arClientes.length; i++){
-                let c = arClientes[i]
-                clientes.push(new Clases.Cliente(c.nombre, c.dni, c.telefono))
-            }         
-        }
-        return clientes;
+        for (let i = 0; i < arClientes.length; i++){
+            let c = arClientes[i]
+            clientes.push(new Clases.Cliente(c.nombre, c.dni, c.telefono))
+        }         
     }
+    return clientes;
+}
+
 module.exports = {getClientes, nuevoTurno, nuevoCliente}
