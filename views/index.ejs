@@ -1,40 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Agregar Turno</title>
+    <link rel="stylesheet" href="/Estilo/registrarcli.css">
+    </head>
 <body>
 
+    <div class="logo-container">
+        <img src="/Estilo/logo.png" alt="Logo Mini Futbol" class="logo-img">
+    </div>
 
-    <h1>Minifutbo iES-9024</h1>
-    
-    <form action='<%=url%>/nuevoturno' method="POST">
-        <p><label>Dia:&nbsp;</label><input type="date" name="dia"></p>
-        <p><label>Turno:&nbsp;</label><input type="number" name="turno"></p>
-        <p>
-            <label>Estado:&nbsp;</label>
-            <select name="libre">
-                <option value="libre"  >Libre  </option>
-                <option value="ocupado">Ocupado</option>
-            </select>
-        </p>
-        <p><label>Cliente:&nbsp;</label><input list="cliente" name="cliente">
-            <datalist id="cliente">
-                <% for (let i = 0; i < clientes.length; i++) { %>
-                    <option value="<%= clientes[i].nombre %> - DNI: <%= clientes[i].dni %> - Tel: <%= clientes[i].telefono %>">
-                <% } %>
-            </datalist>
-        </p>
-        <input type="hidden" name="token" value="lkjrt4v3wmtiqoprmmor98">
-        <input type="submit" value="Agregar Turno">
-    </form>
-    <br>
-    <form action="<%=url%>/menuGeneral" method="POST">
-        <input type="hidden" name="token" value="<%=token%>">
-        <input type="submit" value="Volver">
-    </form>
+    <div class="titulo-header">
+        <h1>Registrar Turno</h1> 
+        </div>
+
+    <div class="registro-container">
+        <form action='<%=url%>/nuevoturno' method="POST">
+            <p>
+                <label for="dia">Día:</label>
+                <input type="date" id="dia" name="dia" required> </p>
+            <p>
+                <label for="turno">Turno:</label>
+                <input type="time" id="turno" name="turno" required> </p>
+            <!--  <p>
+                <label for="estado">Estado:</label>
+                <select id="estado" name="libre" required>
+                    <option value="libre">Libre</option>
+                    <option value="ocupado">Ocupado</option>
+                </select>
+            </p>-->
+            <p>
+                <label for="cliente">Cliente:</label>
+                <input type="text" id="cliente" name="cliente" list="clienteList" placeholder="Nombre" required>
+                <datalist id="clienteList"> <% for (let i = 0; i < clientes.length; i++) { %>
+                        <option value="<%= clientes[i].nombre %> - DNI: <%= clientes[i].dni %> - Tel: <%= clientes[i].telefono %>">
+                    <% } %>
+                </datalist>
+            </p>
+            <input type="hidden" name="token" value="<%=token%>"> <button type="submit" class="btn-registrar">Agregar Turno</button> </form>
+
+        <br>
+
+        <form action="<%=url%>/menuGeneral" method="POST" class="text-center">
+            <input type="hidden" name="token" value="<%=token%>">
+            <button type="submit" class="btn-volver">Volver</button> </form>
 
 </body>
 </html>

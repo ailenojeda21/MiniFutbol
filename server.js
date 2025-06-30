@@ -14,6 +14,10 @@ app.set('view engine', 'ejs');
 app.get ('/',(req, res)=>{
     res.render('login.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
 })
+//--- App.get para cerrar sesion y redirigir a login ----
+app.get('/login', (req, res) => {
+  res.redirect('/'); // O render directo si preferís
+});
 
 // Ruta que recibe los datos del formulario de login
 app.post('/menu', (req, res) => {
@@ -121,6 +125,23 @@ app.post('/nuevoturno',(req, res)=>{
 app.post('/volver', (req, res)=>{
     res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
 })
+
+//-----estilo de la app --------------------------------
+app.use('/public/Estilo', express.static(path.join(__dirname, 'Estilo')));
+
+//------ cerrar sesión -----------------------------
+app.post('/logout', (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        return res.status(500).send('Error al cerrar sesión');
+      }
+      res.redirect('/login'); 
+    });
+  } else {
+    res.redirect('/login');
+  }
+});
 
 const PORT = 3000
 app.listen(PORT, ()=>{console.log(`Escuchando en el puerto  ${PORT} `)})
