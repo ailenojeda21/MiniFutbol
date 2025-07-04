@@ -56,4 +56,30 @@ function eliminarCliente(data){
     }
 }
 
-module.exports = {eliminarCliente, dameClientes,nuevoTurno, nuevoCliente}
+
+function listarTurnos(data){
+    console.log("--seguridad--")
+    console.log("data")
+    console.log(data)
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        const turnos = Controlador.listarTurnos(data)
+        return {success: true, turnos: turnos}
+
+    }else{
+        console.log("No se puede acceder a los turnos")
+        return {success: false}
+    }
+    
+}
+
+function eliminarTurno(data){
+    console.log("--seguridad--")
+    console.log(data)
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        return Controlador.eliminarTurno(data);
+    }else{
+        return {success: false}
+    }
+}
+
+module.exports = {eliminarCliente, dameClientes,nuevoTurno, nuevoCliente, listarTurnos, eliminarTurno}

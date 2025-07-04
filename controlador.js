@@ -1,5 +1,6 @@
 const Clases = require('./clases.js')
-const Modelo = require('./modelo.js')
+const Modelo = require('./modelo.js');
+
 
 function nuevoTurno(data) {
     try {
@@ -80,5 +81,34 @@ function eliminarCliente(data){
     }  
 }
 
-module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente}
+function listarTurnos(data){
+    return Modelo.getTurnos()
+}
+
+
+function eliminarTurno(data){
+    console.log("--Controlador Eliminar Turno--")
+    console.log(data)
+    const dia = data.dia;
+     const hora = data.turno;
+
+    if (!dia || !hora){
+        console.error("Dia u hora no proporcionado para eliminar turno.");
+        return { success: false, message: "Dia y hora no proporcionado." };
+    }else{
+       
+        
+        // Eliminar turno
+        let turnos = Modelo.getTurnos();
+        turnos = turnos.filter(turno => turno.dia !== dia || turno.hora !==hora);
+        Modelo.setTurnos(turnos);
+        console.log(`Turno eliminado.`);
+        
+        return {success: true}
+    }  
+}
+
+
+
+module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente, listarTurnos, eliminarTurno}
 
