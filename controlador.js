@@ -3,7 +3,7 @@ const Modelo = require('./modelo.js');
 
 
 function nuevoTurno(data) {
-    try {
+   try {
         console.log("--Controlador--");
         const libre = data.libre === 'libre';
         if (!data.dia || !data.turno || !data.libre || !data.cliente) {
@@ -30,6 +30,7 @@ function nuevoTurno(data) {
         console.error("Error al crear un nuevo turno:", error.message);
     }
 }
+
 
 function nuevoCliente(data) {
     try {
