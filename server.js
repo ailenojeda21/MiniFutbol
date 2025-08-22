@@ -117,7 +117,7 @@ app.post('/nuevoturno',(req, res)=>{
         res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
     }
 })
-// --- Listar Clientes ---------------------------------
+// --- Listar turnos ---------------------------------
 app.post('/listarturnos', (req, res)=>{
     let resultado = Seguridad.listarTurnos(req.body)
    if(resultado.success){
