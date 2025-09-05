@@ -15,7 +15,6 @@
   <div class="titulo-header text-center">
     <h1>Lista de turnos</h1>
   </div>
-<h1>Lista de turnos</h1>
 
 <div class="registro-container">
   <table style="width:100%; border-collapse: collapse;">
@@ -41,7 +40,7 @@
               <input type="hidden" name="token" value="<%= token %>">
               <input type="hidden" name="dia" value="<%= turnos[i].dia %>">
               <input type="hidden" name="turno" value="<%= turnos[i].hora %>">
-              <button type="submit" class="btn-registrar" style="font-size: 14px;">Eliminar</button>
+              <button type="submit" class="btn-registrar" style="font-size: 14px;" onclick="return confirmarEliminacion()">Eliminar</button>
             </form>
           </td>
         </tr>
@@ -56,5 +55,11 @@
       <button type="submit" class="btn-volver">Volver</button>
     </form>
     
+
+    <Script>
+        function confirmarEliminacion(){
+            return confirm("¿Estas seguro que quieres eliminar este Turno?")
+        }
+    </Script>
 </body>
 </html>
