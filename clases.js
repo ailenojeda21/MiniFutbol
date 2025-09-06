@@ -81,4 +81,12 @@ class Cliente{
     }
 }
 
-module.exports = {Turno,Cliente};
+class Usuario{
+    constructor(nom, con, pass, rol){
+        this.nombre = nom
+        this.contacto = con
+        this.pass = pass
+        this.rol = rol
+    }
+}
+module.exports = {Usuario, Turno,Cliente};

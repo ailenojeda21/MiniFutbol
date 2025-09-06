@@ -132,6 +132,27 @@ app.post('/eliminarTurno', (req, res)=>{
     }
 })
 
+// --- Usuarios ------------------------------------------
+app.get ('/usuario',(req, res)=>{
+    res.render('usuario.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+})
+
+app.post('/usuario',(req,res)=>{
+    Seguridad.nuevoUsuario(req.body)
+    res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+})
+
+app.post('/eliminarusuario',(req, res)=>{
+    Seguridad.eliminarUsuario(req.body)
+    res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
+})
+
+app.post('/usuarios', (req, res)=>{
+    console.log(req.body.token)
+    let colUsuarios = Seguridad.dameUsuarios(req.body)
+    //res.render('usuarios.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98", usuarios: colUsuarios})
+    res.render('usuarios.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98", usuarios: colUsuarios})
+})    
 // --- Volver --------------------------------------------
 
 app.post('/volver', (req, res)=>{

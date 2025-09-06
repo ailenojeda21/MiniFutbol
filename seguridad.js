@@ -82,4 +82,37 @@ function eliminarTurno(data){
     }
 }
 
-module.exports = {eliminarCliente, dameClientes,nuevoTurno, nuevoCliente, listarTurnos, eliminarTurno}
+//--- USUARIOS --------------------------------
+
+function nuevoUsuario(data){
+    console.log("--seguridad--")
+    console.log(data)
+    const respuesta = {}
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        Controlador.nuevoUsuario(data);
+    }else{
+        
+    }    
+}
+
+function eliminarUsuario(data){
+    console.log("--seguridad--")
+    console.log(data)
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        Controlador.eliminarUsuario(data);
+    }else{
+     
+    }    
+}
+
+function dameUsuarios(data){
+    console.log("--seguridad--")
+    console.log(data)
+    if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
+        return Controlador.dameUsuarios(data);
+    }else{
+       return new Error("...ups!")
+    }    
+}
+
+module.exports = {nuevoUsuario, eliminarUsuario, dameUsuarios, eliminarCliente, dameClientes,nuevoTurno, nuevoCliente, listarTurnos, eliminarTurno}

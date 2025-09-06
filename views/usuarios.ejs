@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Formulario para listar usuarios</p>
+    <pre><%=usuarios%></pre>
+    <% for(let i=0 ; i<usuarios.length ; i++){ %>
+        <p><%=usuarios[i].nombre%>&nbsp;<%=usuarios[i].contacto%>&nbsp;<%=usuarios[i].pass%>&nbsp;<%=usuarios[i].rol%>&nbsp;</p>
+    <% } %>
+</body>
+</html>

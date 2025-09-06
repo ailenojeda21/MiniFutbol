@@ -1,6 +1,8 @@
 const fs = require('fs')
 const Clases = require('./clases.js')
 
+//--- TURNOS -------------------
+
 function nuevoTurno(data){
     if(data instanceof Clases.Turno){
         console.log("--Modelo--")
@@ -38,6 +40,8 @@ function setTurnos(turnos){
     } 
 }
 
+//--- CLIENTES -----------------
+
 function nuevoCliente(data){
     if(data instanceof Clases.Cliente){
         console.log("--Modelo--")
@@ -74,5 +78,23 @@ function setClientes(clientes){
     } 
 }
 
+//--- USUARIOS -------------------
 
-module.exports = {setClientes, getClientes, setTurnos, getTurnos, nuevoTurno, nuevoCliente}
+function nuevoUsuario(data){}
+
+function getUsuarios(){
+    let colUsu = 
+    [
+        new Clases.Usuario("Señor Cangrejo","261-5-123123","1234","admin"),
+        new Clases.Usuario("Bob Esponja","261-5-123123","1234","operador"),
+        new Clases.Usuario("Calamardo","261-5-123123","1234","auditor")
+    ]
+    return colUsu
+}
+
+function setUsuarios(usuarios){}
+
+
+
+
+module.exports = {nuevoUsuario, getUsuarios, setUsuarios, setClientes, getClientes, setTurnos, getTurnos, nuevoTurno, nuevoCliente}
