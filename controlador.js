@@ -109,7 +109,21 @@ function eliminarTurno(data){
     }  
 }
 
+//--- USUARIOS ----------------------
+
+function nuevoUsuario(data){
+
+}
+
+function eliminarUsuario(data){
+
+}
+
+function dameUsuarios(data){
+    return Modelo.getUsuarios()
+}
 
 
-module.exports = {eliminarCliente, dameClientes, nuevoTurno, nuevoCliente, listarTurnos, eliminarTurno}
+
+module.exports = {nuevoUsuario, eliminarUsuario, dameUsuarios, eliminarCliente, dameClientes, nuevoTurno, nuevoCliente, listarTurnos, eliminarTurno}
 

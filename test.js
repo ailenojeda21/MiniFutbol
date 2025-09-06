@@ -1,4 +1,7 @@
 const { Turno } = require('./clases.js')
+    const Modelo = require('./modelo.js')
+    const Controlador = require('./controlador.js')
+    const Seguridad = require('./seguridad.js')
 
 function testTurno(){
     const miTurno = new Turno("lunes",2,true)
@@ -13,13 +16,25 @@ function testCliente() {
     console.log(miTurno.libre === true);
 }
 function tesGetClientes() {
-    const modelo = require('./modelo.js')
+
     
-    const clientes = modelo.getClientes()
+    const clientes = Modelo.getClientes()
     console.log("Clientes:")
     console.log(clientes)
 }
+function testGetUsuarios(){
+    //const usuarios = Modelo.getUsuarios()
+    //const usuarios = Controlador.dameUsuarios()
+    let data = {}
+    data.token = 'lkjrt4v3wmtiqoprmmor98'
+    const usuarios = Seguridad.dameUsuarios(data)
+    console.log(usuarios)
+}
+
 //testCliente();
 //testTurno();
-tesGetClientes();
+//tesGetClientes();
+testGetUsuarios()
+
+
 
