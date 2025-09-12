@@ -9,12 +9,6 @@ function nuevoTurno(data) {
         if (!data.dia || !data.turno || !data.libre || !data.cliente) {
             throw new Error("Datos incompletos para crear un turno.");
         }
-        // Verifica si el turno ya existe
-        const existeTurno = Modelo.getTurnos()
-        if (existeTurno.some(t => t.dia === data.dia && t.hora === data.turno)) {
-            console.log("El turno en ese día y hora ya existe.");
-            throw new Error("El turno en ese día y hora ya existe.");
-        }
         //Expresion regular para extraer los datos del string cliente
         const extrae = /^(.+?) - DNI: (\d+) - Tel: (\d+)$/;
         const match = data.cliente.match(extrae);
