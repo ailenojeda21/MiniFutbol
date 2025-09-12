@@ -1,1 +1,1 @@
-[{"dia":"2025-09-12","hora":"1","libre":true,"cliente":{"nombre":"Mauro","dni":"22815791","telefono":"2615012887"}},{"dia":"2025-09-12","hora":"1","libre":true,"cliente":{"nombre":"Mauro","dni":"22815791","telefono":"2615012887"}}]
+[{"dia":"2025-09-12","hora":"1","libre":true,"cliente":{"nombre":"Mauro","dni":"22815791","telefono":"2615012887"}}]
