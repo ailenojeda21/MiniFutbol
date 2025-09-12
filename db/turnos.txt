@@ -1,1 +1,1 @@
-[{"dia":"2025-08-25","hora":"2","libre":true,"cliente":{"nombre":"2","dni":"45360981","telefono":"12"}}]
+[]
