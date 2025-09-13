@@ -1,0 +1,17 @@
+SequenceDiagram {
+ lifeline browser
+ lifeline server
+ lifeline seguridad
+ lifeline controlador
+ lifeline modelo
+
+ browser --> server 'get/usuario'
+ browser <-r- server 'usuario.ejs'
+ browser --> server 'post/usuario'
+ server --> seguridad 'nuevoUsuario(req.body)'
+ browser <-r- server 'menu.ejs'
+ seguridad --> controlador 'nuevoUsuario(data)'
+ controlador --> modelo 'nuevUsuario(data)'
+ 
+
+}
