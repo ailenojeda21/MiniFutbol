@@ -36,7 +36,7 @@ function nuevoTurno(data) {
         console.error("Error al crear un nuevo turno:", error.message);
     }
 }
-
+/*
 function nuevoCliente(data) {
     try {
         console.log("--Controlador--");
@@ -49,7 +49,7 @@ function nuevoCliente(data) {
     } catch (error) {
         console.error("Error en nuevoCliente:", error.message);
     }
-}
+}*/
 
 function nuevoCliente(data) {
     console.log("--Controlador--")
