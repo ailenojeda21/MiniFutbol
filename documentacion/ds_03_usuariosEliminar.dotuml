@@ -1,0 +1,19 @@
+SequenceDiagram {
+ lifeline browser
+ lifeline server
+ lifeline seguridad
+ lifeline controlador
+ lifeline modelo
+
+	browser <-r- server 'usuarios.ejs\n ( [{Usuario}] )'
+	browser -->  server 'post/eliminarusuario'
+	server -->  seguridad 'eliminarUsuario\n(req.body)'
+  browser <-r- server 'menu.ejs'
+  seguridad --> controlador 'eliminarUsuario\n(data)'
+  controlador --> modelo 'getUsuarios()'
+  controlador <-r- modelo '[{Usuario}]'
+  controlador --> controlador 'eliminarUsuario()'
+  controlador --> modelo 'setUsuarios( [{Usuario}] )'
+ 
+
+}
