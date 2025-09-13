@@ -9,6 +9,12 @@ function nuevoTurno(data) {
         if (!data.dia || !data.turno || !data.libre || !data.cliente) {
             throw new Error("Datos incompletos para crear un turno.");
         }
+                // Verifica si el turno ya existe
+        const existeTurno = Modelo.getTurnos()
+        if (existeTurno.some(t => String(t.dia) === String(data.dia) && String(t.hora) === String(data.turno))) {
+              console.log("Fecha y turno  ocupado");
+            throw new Error("Fecha y turno  ocupado");
+        }
         //Expresion regular para extraer los datos del string cliente
         const extrae = /^(.+?) - DNI: (\d+) - Tel: (\d+)$/;
         const match = data.cliente.match(extrae);
@@ -30,8 +36,7 @@ function nuevoTurno(data) {
         console.error("Error al crear un nuevo turno:", error.message);
     }
 }
-
-
+/*
 function nuevoCliente(data) {
     try {
         console.log("--Controlador--");
@@ -44,15 +49,20 @@ function nuevoCliente(data) {
     } catch (error) {
         console.error("Error en nuevoCliente:", error.message);
     }
-}
+}*/
 
 function nuevoCliente(data) {
     console.log("--Controlador--")
-
+    const clientesExistentes = Modelo.getClientes();
+    //verifica si el cliente ya existe 
+     if (clientesExistentes.some(cliente => String(cliente.dni) === String(data.dni))) {
+            console.log("Ya existe un cliente con ese DNI")
+            return { success: false, message:"Ya existe un cliente con ese DNI" };
+        }
     const unCliente = new Clases.Cliente(data.nombre,data.dni,data.telefono)
     console.log(unCliente)
     Modelo.nuevoCliente(unCliente)
-    return {success: true}
+    return {success: true}
 }
 
 function dameClientes(data){
