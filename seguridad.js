@@ -91,7 +91,7 @@ function nuevoUsuario(data){
     if(data.token == 'lkjrt4v3wmtiqoprmmor98'){
         Controlador.nuevoUsuario(data);
     }else{
-        
+        return {success: false}
     }    
 }
 

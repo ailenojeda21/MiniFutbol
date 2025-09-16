@@ -80,19 +80,35 @@ function setClientes(clientes){
 
 //--- USUARIOS -------------------
 
-function nuevoUsuario(data){}
-
-function getUsuarios(){
-    let colUsu = 
-    [
-        new Clases.Usuario("Señor Cangrejo","261-5-123123","1234","admin"),
-        new Clases.Usuario("Bob Esponja","261-5-123123","1234","operador"),
-        new Clases.Usuario("Calamardo","261-5-123123","1234","auditor")
-    ]
-    return colUsu
+function nuevoUsuario(data){
+    if(data instanceof Clases.Usuario){
+        console.log("--Modelo--")
+        let usuarios = getUsuarios()
+        usuarios.push(data)
+        setUsuarios(usuarios)
+        return {success: true}
+    }
 }
 
-function setUsuarios(usuarios){}
+function getUsuarios(){
+    let usuarios = [];
+    const str_usuario = fs.readFileSync('./db/usuarios.txt','utf-8')
+    if (str_usuario){
+        let arUsuarios = JSON.parse(str_usuario)
+        for (let i = 0; i < arUsuarios.length; i++){
+            let u = arUsuarios[i]
+            usuarios.push(new Clases.Usuario(u.nombre, u.contacto, u.pass, u.rol))
+        }         
+    }
+    return usuarios;
+}
+
+function setUsuarios(usuarios){
+    if(Array.isArray(usuarios)){
+        fs.writeFileSync('./db/usuarios.txt', JSON.stringify(usuarios), 'utf-8')
+        return {success: true}
+    } 
+}
 
 
 
