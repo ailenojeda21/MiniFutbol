@@ -133,11 +133,11 @@ app.post('/eliminarTurno', (req, res)=>{
 })
 
 // --- Usuarios ------------------------------------------
-app.get ('/usuario',(req, res)=>{
+app.post ('/usuario',(req, res)=>{
     res.render('usuario.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
 })
 
-app.post('/usuario',(req,res)=>{
+app.post('/nuevousuario',(req,res)=>{
     Seguridad.nuevoUsuario(req.body)
     res.render('menu.ejs',{url : "http://localhost:3000", token:"lkjrt4v3wmtiqoprmmor98"})
 })
