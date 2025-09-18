@@ -122,7 +122,17 @@ function eliminarTurno(data){
 //--- USUARIOS ----------------------
 
 function nuevoUsuario(data){
-
+    console.log("--Controlador--")
+    const usuariosExistentes = Modelo.getUsuarios();
+    //verifica si el usuario.contacto ya existe 
+     if (usuariosExistentes.some(usuario => usuario.contacto === data.contacto)) {
+            console.log("Ya existe un usuario con este número de contacto")
+            return { success: false, message:"Ya existe un usuario con ese Contacto" };
+        }
+    const unUsuario = new Clases.Usuario(data.nombre,data.contacto,data.pass,data.rol)
+    console.log(unUsuario)
+    Modelo.nuevoUsuario(unUsuario)
+    return {success: true}
 }
 
 function eliminarUsuario(data){

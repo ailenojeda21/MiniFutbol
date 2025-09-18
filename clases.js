@@ -88,5 +88,36 @@ class Usuario{
         this.pass = pass
         this.rol = rol
     }
+    set Nombre(nom) { 
+        this.nombre = nom;
+    }
+    get Nombre() {
+        return this.nombre;
+    }
+    set Contacto(con) {
+        this.contacto = con;
+    }
+    get Contacto() {
+        return this.contacto;
+    }
+    set Pass(pass) {
+        this.pass = pass;
+    }
+    get Pass() {
+        return this.pass;
+    }
+    set Rol(rol) {
+        this.rol = rol;
+    }
+    get Rol() {
+        return this.rol;
+    }
+    FromJSON(json){
+        let obj = JSON.parse(json)
+        this.nombre = obj.nombre
+        this.contacto = obj.contacto
+        this.pass = obj.pass
+        this.rol = obj.rol
+    }   
 }
 module.exports = {Usuario, Turno,Cliente};
