@@ -1,1 +1,0 @@
-[{"dia":"2025-09-13","hora":"1","libre":true,"cliente":{"nombre":"Coco Jurado (El regreso)","dni":"12345678","telefono":"12611234567"}},{"dia":"2025-09-13","hora":"2","libre":true,"cliente":{"nombre":"Otro cliente","dni":"45360982","telefono":"12345678"}},{"dia":"2025-09-13","hora":"3","libre":true,"cliente":{"nombre":"Otro cliente","dni":"45360982","telefono":"12345678"}}]
